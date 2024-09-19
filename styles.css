@@ -1,0 +1,189 @@
+/* Full-page style */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    #ffddc1,
+    #ffc3a0,
+    #ff9a9e
+  ); /* Soft pastel gradient */
+  overflow: hidden;
+  font-family: "Dancing Script", cursive;
+  color: white;
+  position: relative;
+}
+
+/* Glittering background effect */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://i.imgur.com/X5rbTgW.png"); /* Glitter texture */
+  background-size: cover;
+  opacity: 0.15; /* Light glitter effect on top of the background */
+  z-index: 1;
+  animation: glitterBackground 3s linear infinite; /* Glitter animation */
+}
+
+@keyframes glitterBackground {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Container to hold the slider and text */
+.container {
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 2; /* Bring the content above the glitter background */
+  position: relative;
+}
+
+/* Responsive birthday message */
+.birthday-message {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #fff; /* Ensure the text is white for visibility */
+  line-height: 1.2;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* Add a subtle glow to text */
+  display: inline-block;
+  position: relative;
+  z-index: 2; /* Ensure it's above the glitter background */
+  animation: glowText 2s ease-in-out infinite alternate; /* Soft glowing effect */
+}
+
+@keyframes glowText {
+  from {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+  }
+}
+
+/* Responsive hidden message */
+.hidden-message {
+  display: none;
+  font-size: 1.8em;
+  margin-top: 20px;
+  animation: reveal 1s ease-in-out;
+  z-index: 2; /* Keep it above the glitter background */
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slider styling */
+.slider {
+  position: relative;
+  width: 100%; /* Full width of the screen */
+  height: 350px; /* Fixed height for the slider to prevent oversized images */
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%; /* Each image takes up full width of the slider */
+  display: none; /* All slides are hidden by default */
+}
+
+.slide img {
+  width: 100%;
+  height: 100%; /* Ensure images fit within the slider height */
+  object-fit: cover; /* Crop the images to fill the slider without stretching */
+  border-radius: 10px;
+}
+
+.slide:first-child {
+  display: block; /* Display the first slide initially */
+}
+
+/* Slider control buttons */
+.slider-controls {
+  margin-top: 10px;
+}
+
+button {
+  font-size: 1.5em;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+button:hover {
+  background-color: #ff85c2;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+  .birthday-message {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+
+  .slider {
+    height: 300px; /* Slightly smaller height for tablet screens */
+  }
+
+  button {
+    font-size: 1.2em;
+    padding: 6px 12px;
+  }
+
+  .hidden-message {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .birthday-message {
+    font-size: 1.3em;
+  }
+
+  .slider {
+    height: 250px; /* Smaller height for mobile screens */
+  }
+
+  button {
+    font-size: 1em;
+    padding: 5px 10px;
+  }
+
+  .hidden-message {
+    font-size: 1.2em;
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Slider Surprise</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <audio id="birthdayMusic" autoplay loop>
+      <source src="./music.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <div class="container">
+      <h4 class="birthday-message">
+        You're the Most Beautiful Girl I’ve Ever Met!
+      </h4>
+
+      <!-- Image slider -->
+      <div class="slider">
+        <div class="slides">
+          <img
+            src="images/kashish1.jpeg"
+            class="slide"
+            alt="Birthday Image 1"
+          />
+          <img
+            src="images/kashish2.jpeg"
+            class="slide"
+            alt="Birthday Image 2"
+          />
+          <img
+            src="images/kashish3.jpeg"
+            class="slide"
+            alt="Birthday Image 3"
+          />
+        </div>
+      </div>
+
+      <!-- Buttons to navigate -->
+      <div class="slider-controls">
+        <!-- <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button> -->
+      </div>
+
+      <h2 class="hidden-message">Happy Birthday, Beautiful! 🎉</h2>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
