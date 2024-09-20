@@ -36,3 +36,18 @@ setInterval(() => {
 // Show the first slide initially
 showSlide(currentSlide);
 changeMessage(currentMessage);
+
+document.getElementById("playMusic").style.display = "block";
+document.getElementById("playMusic").addEventListener("click", function () {
+  var audio = document.getElementById("birthdayMusic");
+  audio.play();
+  this.style.display = "none"; // Hide button after clicking
+});
+
+window.addEventListener("load", function () {
+  var audio = document.getElementById("birthdayMusic");
+  audio.play().catch(function (error) {
+    // Autoplay failed, show the play button
+    document.getElementById("playMusic").style.display = "block";
+  });
+});
